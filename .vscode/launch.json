@@ -1,0 +1,45 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.1.0",
+    "configurations": [
+        {
+            "name": "Server",
+            "cwd": "${workspaceFolder}/server",
+            "env": {"NODE_ENV" : "local"},
+            "skipFiles": [
+                "<node_internals>/**"
+            ],
+            "type": "node-terminal",
+            "request": "launch",
+            "command": "npm start"
+        },
+        {
+            "name": "SampleService",
+            "cwd": "${workspaceFolder}/server/microservices/sample",
+            "env": {"NODE_ENV" : "local"},
+            "skipFiles": [
+                "<node_internals>/**"
+            ],
+            "type": "node-terminal",
+            "request": "launch",
+            "command": "npm start"
+        }
+    ],
+    "compounds": [
+        {
+            "name": "Server & Microservices",
+            "configurations": [
+                "Server", 
+                "SampleService",
+            ]
+        },
+        {
+            "name": "Microservices",
+            "configurations": [
+                "SampleService",
+            ]
+        }
+    ]
+}
